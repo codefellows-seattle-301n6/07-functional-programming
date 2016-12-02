@@ -66,25 +66,26 @@ Article.getAll = function(nextFunction) {
   });
 };
 
-// Article.numWordsAll = function() {
-//   return Article.allArticles.map(function(currentArticle) {
-//     return currentArticle.body.match(/\w+/g).length;
-//   })
-//   .reduce(function(acc, curr) {
-//     console.log(acc);
-//     // TODO: complete this function to sum up all of the words.
-//     return acc + curr;
-//   }, 0);
-// }
+Article.numWordsAll = function() {
+  return Article.allArticles.map(function(currentArticle) {
+    return currentArticle.body.match(/\w+/g).length;
+  })
+  .reduce(function(acc, curr) {
+    //console.log(acc);
+    // TODO: complete this function to sum up all of the words.
+    return acc + curr;
+    acc.push
+  }, 0);
+}
 
 Article.allAuthors = function() {
   // TODO: return a mapped collection
       // with just the author names
-return Article.allArticles.map(function(currentArt) {
-  return currentArt.author;
+return Article.allArticles.map(function(allArticles) {
+  return allArticles.author;
       //then chain reduce, and set the accumulator to an array
       // to build a unique list of author names.
-    })
+  })
 }
 
 Article.numWordsByAuthor = function() {
@@ -103,7 +104,9 @@ Article.numWordsByAuthor = function() {
 }
 
 module.Article = Article;
-// var x = Article.numWordsAll();
-var x = Article.allAuthors();
-console.log(x);
+// Article.loadAll();
+// Article.fetchAll();
+// Article.getAll();
+Article.numWordsAll();
+Article.allAuthors();
 })(window);
