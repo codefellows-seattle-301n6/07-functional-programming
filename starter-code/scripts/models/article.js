@@ -69,8 +69,9 @@ Article.getAll = function(nextFunction) {
 Article.numWordsAll = function() {
   return Article.allArticles.map(function(currentArticle) {
     return currentArticle.body.match(/\w+/g).length;
-  }).reduce(function() {
-    // TODO: complete this function to sum up all of the words.
+  }).reduce(function(acc, current) {
+    // TODO: DONE??? complete this function to sum up all of the words.
+    return acc + current
   })
 }
 
@@ -99,3 +100,5 @@ Article.numWordsByAuthor = function() {
 
 module.Article = Article;
 })(window);
+
+Article.numWordsAll();
