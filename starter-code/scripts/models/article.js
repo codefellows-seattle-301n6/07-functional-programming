@@ -66,20 +66,25 @@ Article.getAll = function(nextFunction) {
   });
 };
 
-Article.numWordsAll = function() {
-  return Article.allArticles.map(function(currentArticle) {
-    return currentArticle.body.match(/\w+/g).length;
-  }).reduce(function() {
-    // TODO: complete this function to sum up all of the words.
-  })
-}
+// Article.numWordsAll = function() {
+//   return Article.allArticles.map(function(currentArticle) {
+//     return currentArticle.body.match(/\w+/g).length;
+//   })
+//   .reduce(function(acc, curr) {
+//     console.log(acc);
+//     // TODO: complete this function to sum up all of the words.
+//     return acc + curr;
+//   }, 0);
+// }
 
 Article.allAuthors = function() {
   // TODO: return a mapped collection
       // with just the author names
-
+return Article.allArticles.map(function(currentArt) {
+  return currentArt.author;
       //then chain reduce, and set the accumulator to an array
       // to build a unique list of author names.
+    })
 }
 
 Article.numWordsByAuthor = function() {
@@ -89,7 +94,7 @@ Article.numWordsByAuthor = function() {
     return Article.allAuthors().map(function(currentAuthor) {
       return {
         name: currentAuthor,
-        numWords: // someCollection.filter(function(curArticle) {
+        // numWords: // someCollection.filter(function(curArticle) {
           // what do we return here to check for matching authors?
         // .map() to return the author's word count for each article body (you may split or regexp)
         // .reduce() to squash this array into one big number, per author.
@@ -98,4 +103,7 @@ Article.numWordsByAuthor = function() {
 }
 
 module.Article = Article;
+// var x = Article.numWordsAll();
+var x = Article.allAuthors();
+console.log(x);
 })(window);
