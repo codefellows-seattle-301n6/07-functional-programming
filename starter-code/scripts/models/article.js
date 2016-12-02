@@ -72,21 +72,28 @@ Article.numWordsAll = function() {
   }).reduce(function(acc, current) {
     // TODO: DONE complete this function to sum up all of the words.
     return acc + current
-  }, 1)
+  }, 0)
 }
 
 Article.allAuthors = function() {
-  // TODO: return a mapped collection
-      // with just the author names
-      allArticles.map(function(currentAuthor) {
-        return {
-          author: currentAuthor
-        }
-      }).reduce()
-
-      //then chain reduce, and set the accumulator to an array
-      // to build a unique list of author names.
+  return Article.allArticles.map(function(allArticles) {
+    return allArticles.author
+  })
+  .reduce(function(acc, current) {
+    if (acc.indexOf(current) < 0) {
+      acc.push(current)
+      return acc
+    }
+    else {
+      return acc
+    }
+  }, [])
 }
+// ^ TODO: return a mapped collection
+    // with just the author names
+    // then chain reduce, and set the accumulator to an array
+    // to build a unique list of author names.
+
 
 Article.numWordsByAuthor = function() {
   // TODO: transform each author element into an object with 2 properties:
