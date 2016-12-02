@@ -77,12 +77,9 @@ Article.numWordsAll = function() {
 
 Article.allAuthors = function() {
   return Article.allArticles.map(function(allArticles) {
-    // let names = [];
-    // console.log(allArticles.author)
     return allArticles.author
   })
   .reduce(function(acc, current) {
-    // console.log(acc.indexOf(current))
     if (acc.indexOf(current) < 0) {
       acc.push(current)
       return acc
