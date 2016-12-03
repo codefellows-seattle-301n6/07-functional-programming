@@ -66,28 +66,6 @@
     });
   };
 
-<<<<<<< HEAD
-  // Article.numWordsAll = function() {
-  //   return Article.allArticles.map(function(currentArticle) {
-  //     return currentArticle.body.match(/\w+/g).length;
-  //   })
-  //   .reduce(function(acc, curr) {
-  //     console.log(acc);
-  //     // TODO: complete this function to sum up all of the words.
-  //     return acc + curr;
-  //   }, 0);
-  // }
-
-  Article.allAuthors = function() {
-    // TODO: return a mapped collection
-    // with just the author names
-    return Article.allArticles.map(function(currentArt) {
-      return currentArt.author;
-      //then chain reduce, and set the accumulator to an array
-      // to build a unique list of author names.
-    })
-  }
-=======
   Article.numWordsAll = function() {
     return Article.allArticles.map(function(currentArticle) {
       return currentArticle.body.match(/\w+/g).length;
