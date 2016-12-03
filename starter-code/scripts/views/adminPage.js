@@ -8,6 +8,8 @@ articleView.renderAdminPage = function() {
 
   $('#blog-stats .articles').text(Article.allArticles.length);
   $('#blog-stats .words').text(Article.numWordsAll());
+  console.log(Article.numWordsByAuthor());
+  //console.log(Article.numWordsAll());
 };
 
 Article.fetchAll(articleView.renderAdminPage);
