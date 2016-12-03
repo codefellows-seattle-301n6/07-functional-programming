@@ -71,7 +71,6 @@
       return currentArticle.body.match(/\w+/g).length;
     })
     .reduce(function(acc, curr) {
-      //console.log(acc);
       // TODO: complete this function to sum up all of the words.
       return acc + curr;
       acc.push
