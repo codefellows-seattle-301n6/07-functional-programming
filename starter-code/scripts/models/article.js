@@ -69,32 +69,68 @@ Article.getAll = function(nextFunction) {
 Article.numWordsAll = function() {
   return Article.allArticles.map(function(currentArticle) {
     return currentArticle.body.match(/\w+/g).length;
-  }).reduce(function() {
+  }).reduce(function(accumulator, current) {
     // TODO: complete this function to sum up all of the words.
+    return accumulator + current;
   })
 }
 
 Article.allAuthors = function() {
   // TODO: return a mapped collection
       // with just the author names
-
+  return Article.allArticles.map(function(thisArticle) {
+    return thisArticle.author;
+  })
       //then chain reduce, and set the accumulator to an array
       // to build a unique list of author names.
+  .reduce(function(authorArray, thisAuthor) {
+    if(authorArray.indexOf(thisAuthor) < 0) {
+      authorArray.push(thisAuthor);
+    }
+    return authorArray;
+  }, [ ])
 }
 
 Article.numWordsByAuthor = function() {
   // TODO: transform each author element into an object with 2 properties:
     // one for the author's name, and one for the total number of words
     // written by the specified author.
-    return Article.allAuthors().map(function(currentAuthor) {
-      return {
-        name: currentAuthor,
-        numWords: // someCollection.filter(function(curArticle) {
-          // what do we return here to check for matching authors?
-        // .map() to return the author's word count for each article body (you may split or regexp)
-        // .reduce() to squash this array into one big number, per author.
-      }
-    });
+  return Article.allAuthors().map(function(currentAuthor) {
+    return {
+      name: currentAuthor,
+      numWords: Article.allArticles.map(function(curArticle) {
+        // what do we return here to check for matching authors?
+      // .map() to return the author's word count for each article body (you may split or regexp)
+      // .reduce() to squash this array into one big number, per author.
+        if(curArticle.author === currentAuthor) {
+          return curArticle.body.match(/\w+/g).length;
+        } else {
+          return 0;
+        }
+      }).reduce(function(allTheWords, thisArticleWords) {
+        return allTheWords + thisArticleWords;
+      }),
+      numArticles: Article.allArticles.filter(function(currentArticle) {
+        if(currentArticle.author === currentAuthor) {
+          return currentArticle.author;
+        } else {
+          return 0;
+        }
+      }).length,
+      totalCategories: Article.allArticles.map(function(currentArticle) {
+        if (currentArticle.author === currentAuthor) {
+          return currentArticle.category;
+        }
+      })
+      .reduce(function(categoryArray, thisCategory) {
+        if (categoryArray.indexOf(thisCategory) < 0) {
+          categoryArray.push(thisCategory);
+        }
+        return categoryArray;
+      }, [ ])
+      .join(', ')
+    }
+  });
 }
 
 module.Article = Article;

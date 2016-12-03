@@ -20,3 +20,6 @@ Today there are many TODO items, but they are (mostly) smaller bites.
 
 ## Stretch Goals:
 - What statistical analysis would be of interest to you with this data set? Code it up!  
+    Words per author
+    Articles per category
+    Number of articles per author 

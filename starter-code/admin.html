@@ -13,7 +13,11 @@
     <link rel="icon" type="image/x-icon" href="https://i.imgur.com/7v5ASc8.png">
     <!-- DONE: Setup a template for each row of the Author Stats section of this page: -->
     <script id="stats-template" type="text/x-handlebars-template">
-      <li><strong>{{name}}</strong>: {{numWords}} words written</li>
+      <li><strong>{{name}}</strong>: {{numWords}} words written.</li>
+      <ul>
+        <li id="numArticles">{{numArticles}} articles written.</li>
+        <li id="totalCategories">Categories contributed to: {{totalCategories}} </li>
+      </ul>
     </script>
     </head>
   <body>
